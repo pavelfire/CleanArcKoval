@@ -5,7 +5,7 @@ import com.example.cleanarckoval220123.domain.models.UserName
 class GetUserNameUseCase {
 
     fun execute(): UserName{
-        return UserName("Jonny", "Oueahh")
+        return UserName(firstName = "Jonny", lastName = "Oueahh")
 
     }
 }
