@@ -41,5 +41,13 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+/*
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/pavelfire/CleanArcKoval.git
+git push -u origin main
+ */
 
 //https://www.youtube.com/watch?v=zt07bObIpSk&list=PLeF3l86ZMVkLQbdRL6Ra4cr_cmPROj94y&index=3
