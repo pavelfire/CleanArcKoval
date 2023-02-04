@@ -7,7 +7,7 @@
     tools:context=".presentation.MainActivity">
 
     <Button
-        android:id="@+id/sendButton"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save user data"
@@ -22,13 +22,13 @@
         android:layout_height="wrap_content"
         android:hint="Put data here"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/sendButton"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/receiveButton" />
+        app:layout_constraintTop_toBottomOf="@+id/getButton" />
 
     <Button
-        android:id="@+id/receiveButton"
+        android:id="@+id/getButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get user data"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:text="No data"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/receiveButton"
+        app:layout_constraintBottom_toTopOf="@+id/getButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
