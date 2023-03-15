@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CleanArcKoval220123">
         <activity
+            android:name=".presentation.RecyclerActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.MainActivity"
             android:exported="true">
             <intent-filter>

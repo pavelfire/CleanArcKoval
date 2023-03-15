@@ -1,5 +1,6 @@
 package com.example.cleanarckoval220123.presentation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         val dataEditView = findViewById<EditText>(R.id.dataEditText)
         val saveButton = findViewById<Button>(R.id.saveButton)
         val getButton = findViewById<Button>(R.id.getButton)
+        val recyclerButton = findViewById<Button>(R.id.recyclerButton)
 
         saveButton.setOnClickListener {
             val text = dataEditView.text.toString()
@@ -37,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         getButton.setOnClickListener {
             val userName: UserName = getUserNameUseCase.execute()
             dataTextView.text = "${userName.firstName} ${userName.lastName}"
+        }
+
+        recyclerButton.setOnClickListener {
+            startActivity(Intent(this, RecyclerActivity::class.java))
         }
     }
 }
@@ -52,3 +58,14 @@ w10samsungSsdWork
  */
 
 //https://www.youtube.com/watch?v=zt07bObIpSk&list=PLeF3l86ZMVkLQbdRL6Ra4cr_cmPROj94y&index=3
+
+/*
+Clean architecture books
+https://medium.com/nuances-of-programming/clean-architecture-в-android-для-начинающих-f44d25495f5b
+
+https://habr.com/ru/post/459402/
+
+dependency injection
+https://devcolibri.com/basics-of-dependency-injection-for-dummies/
+
+ */
