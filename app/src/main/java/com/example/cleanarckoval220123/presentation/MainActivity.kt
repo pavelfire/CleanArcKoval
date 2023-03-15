@@ -64,7 +64,6 @@ Clean architecture books
 https://medium.com/nuances-of-programming/clean-architecture-в-android-для-начинающих-f44d25495f5b
 
 https://habr.com/ru/post/459402/
-
 https://proglib.io/p/clean-architecture-android-apps
 
 dependency injection
