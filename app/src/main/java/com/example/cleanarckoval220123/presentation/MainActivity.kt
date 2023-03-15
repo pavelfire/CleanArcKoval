@@ -65,6 +65,8 @@ https://medium.com/nuances-of-programming/clean-architecture-в-android-для-�
 
 https://habr.com/ru/post/459402/
 
+https://proglib.io/p/clean-architecture-android-apps
+
 dependency injection
 https://devcolibri.com/basics-of-dependency-injection-for-dummies/
 
