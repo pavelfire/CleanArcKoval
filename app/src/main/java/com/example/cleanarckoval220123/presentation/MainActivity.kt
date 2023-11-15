@@ -30,12 +30,12 @@ class MainActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val text = dataEditView.text.toString()
             val params = SaveUserNameParam(name = text)
-            val result: Boolean = saveUserNameUseCase.execute(param = params)
+            val result: Boolean = saveUserNameUseCase(param = params)
             dataTextView.text = "Save result = $result"
         }
 
         getButton.setOnClickListener {
-            val userName: UserName = getUserNameUseCase.execute()
+            val userName: UserName = getUserNameUseCase()
             dataTextView.text = "${userName.firstName} ${userName.lastName}"
         }
     }

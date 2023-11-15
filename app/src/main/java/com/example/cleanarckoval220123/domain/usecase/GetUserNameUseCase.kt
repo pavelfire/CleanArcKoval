@@ -5,7 +5,7 @@ import com.example.cleanarckoval220123.domain.repository.UserRepository
 
 class GetUserNameUseCase(private val userRepository: UserRepository) {
 
-    fun execute(): UserName{
+    operator fun invoke (): UserName{
         return userRepository.getName()
     }
 }

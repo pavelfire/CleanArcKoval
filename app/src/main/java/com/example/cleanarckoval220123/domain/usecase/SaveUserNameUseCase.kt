@@ -5,7 +5,7 @@ import com.example.cleanarckoval220123.domain.repository.UserRepository
 
 class SaveUserNameUseCase(private val userRepository: UserRepository) {
 
-    fun execute(param: SaveUserNameParam): Boolean{
+    operator fun invoke(param: SaveUserNameParam): Boolean{
 
         val oldUserName = userRepository.getName()
 
