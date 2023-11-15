@@ -2,9 +2,11 @@ package com.example.cleanarckoval220123.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import com.example.cleanarckoval220123.R
 import com.example.cleanarckoval220123.data.repository.UserRepositoryImpl
 import com.example.cleanarckoval220123.data.storage.sharedprefs.SharedPrefUserStorage
@@ -15,39 +17,40 @@ import com.example.cleanarckoval220123.domain.usecase.SaveUserNameUseCase
 
 class MainActivity : AppCompatActivity() {
 
-    private val userStorage by lazy(LazyThreadSafetyMode.NONE) { SharedPrefUserStorage(context = applicationContext) }
-    private val userRepository by lazy(LazyThreadSafetyMode.NONE) { UserRepositoryImpl(userStorage = userStorage) }
-    private val getUserNameUseCase by lazy(LazyThreadSafetyMode.NONE) {
-        GetUserNameUseCase(
-            userRepository
-        )
-    }
-    private val saveUserNameUseCase by lazy(LazyThreadSafetyMode.NONE) {
-        SaveUserNameUseCase(
-            userRepository
-        )
-    }
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Log.d("TAG", "MainActivity created")
+        viewModel = ViewModelProvider(
+            this,
+            MainViewModelFactory(this)
+        ).get(MainViewModel::class.java)
 
         val dataTextView = findViewById<TextView>(R.id.dataTextView)
         val dataEditView = findViewById<EditText>(R.id.dataEditText)
         val saveButton = findViewById<Button>(R.id.saveButton)
         val getButton = findViewById<Button>(R.id.getButton)
 
+        viewModel.resultLive.observe(this) {
+            dataTextView.text = it
+        }
+
         saveButton.setOnClickListener {
             val text = dataEditView.text.toString()
-            val params = SaveUserNameParam(name = text)
-            val result: Boolean = saveUserNameUseCase(param = params)
-            dataTextView.text = "Save result = $result"
+            viewModel.save(text)
         }
 
         getButton.setOnClickListener {
-            val userName: UserName = getUserNameUseCase()
-            dataTextView.text = "${userName.firstName} ${userName.lastName}"
+            viewModel.load()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("TAG", "MainActivity destroyed")
     }
 }
 
