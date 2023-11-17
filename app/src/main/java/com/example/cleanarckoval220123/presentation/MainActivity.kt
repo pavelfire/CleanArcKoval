@@ -1,27 +1,28 @@
 package com.example.cleanarckoval220123.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import com.example.cleanarckoval220123.R
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: MainViewModel
+//    private lateinit var viewModel: MainViewModel
+
+    private val viewModel by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         Log.d("TAG", "MainActivity created")
-        viewModel = ViewModelProvider(
-            this,
-            MainViewModelFactory(this)
-        ).get(MainViewModel::class.java)
+
+//        viewModel = ViewModelProvider(this, MainViewModelFactory(this))
+//            .get(MainViewModel::class.java)
 
         val dataTextView = findViewById<TextView>(R.id.dataTextView)
         val dataEditView = findViewById<EditText>(R.id.dataEditText)
